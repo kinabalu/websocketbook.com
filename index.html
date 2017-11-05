@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <!-- Set latest rendering mode for IE -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <title>WebSocket - Lightweight Client-Server Communications</title>
+        <meta name="description" content="WebSocket - Lightweight Client-Server Communications">
+
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700,300' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Volkhov:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+        <!-- Set viewport for mobile devices to zoom to 100% and turn off user privileges to scale/zoom -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/photoswipe.css">
+        <link rel="stylesheet" href="css/jquery.booklet.latest.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!-- Loading jQuery liblary from CDN with a local fallback when CDN not responding. -->
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+
+        <!--[if lt IE 9]>
+            <script type="text/javascript" src="js/vendor/html5shiv.min.js"></script>
+            <script type="text/javascript" src="js/vendor/selectivizr.min.js"></script>
+            <link rel="stylesheet" href="css/ie8.css">
+        <![endif]-->
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '370894073299581');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=370894073299581&ev=PageView&noscript=1"
+/></noscript>
+<!-- DO NOT MODIFY -->
+<!-- End Facebook Pixel Code -->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <header>
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="span12 clearfix">
+
+                        <a href="index.html"><h1 class="logo">WebSocket</h1></a>
+
+                        <a href="#" class="mobile-nav-btn visible-phone"><i class="icon-align-justify icon-white"></i></a>
+
+                        <nav>
+
+                            <ul class="hidden-phone">
+                                <li><a href="#link-about">About this book</a></li>
+                                <li><a href="#link-review">Reviews</a></li>
+                                <li><a href="#link-author">Author</a></li>
+                                <li><a href="#link-sample">Download sample</a></li>
+                                <li><a href="http://shop.oreilly.com/product/0636920030485.do">Buy this book</a></li>
+                            </ul>
+
+                            <div class="mobile-nav"></div>
+
+                        </nav>
+
+                    </div> <!-- span12 end -->
+
+                </div> <!-- row end -->
+
+            </div> <!-- container end -->
+
+        </header>
+
+        <div class="container">
+
+            <section class="row">
+
+                <div class="span12">
+
+                    <img src="img/normal/book.jpg" alt="Book" class="book-image" width="304px" height="319px">
+
+                    <hgroup>
+                        <h1>WebSocket - Lightweight Client-Server Communications</h1>
+                        <h3>Learn how to use the recommended technology for full-duplex bi-directional communication between client and server</h3>
+                    </hgroup>
+
+                    <p>Until recently, creating desktop-like applications in the browser meant using inefficient Ajax or Comet technologies to communicate with the server. With this practical guide, you’ll learn how to use WebSocket, a protocol that enables the client and server to communicate with each other on a single connection</p>
+
+                    <a href="http://shop.oreilly.com/product/0636920030485.do" class="button green">BUY THE BOOK TODAY</a>
+                    <a href="#link-sample" class="button blue">PEEK INSIDE</a>
+
+                </div> <!-- span12 end -->
+
+            </section> <!-- row end -->
+
+        </div> <!-- container end -->
+
+        <section class="quote">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="span12">
+
+                        <blockquote><h2>“Highly recommended book if you're looking to migrate your old long polling and move to WebSocket.”</h2><cite class="hidden-phone">DB Flash</cite></blockquote>
+
+                    </div> <!-- span12 end -->
+
+                </div> <!-- row end -->
+
+            </div> <!-- container end -->
+
+        </section> <!-- quote end -->
+
+        <section class="container" id="link-about">
+
+            <div class="row">
+
+                <div class="ripped-paper clearfix">
+
+                    <div class="span4">
+
+                        <h4>Build <em>real</em> examples.</h4>
+
+                    </div> <!-- span4 end -->
+
+                    <div class="span5">
+
+                        <p>
+                            Throughout the book you'll build examples that will help you understand everything WebSocket has to offer your projects. Learn by doing and see the progress unfold in front of your eyes.
+                        </p>
+
+                    </div> <!-- span5 end -->
+
+                    <div class="span3">
+
+                        <img src="img/normal/example-graphic.png" alt="Build real examples." width="220px" height="160px">
+
+                    </div> <!-- span3 end -->
+
+                </div>
+
+            </div> <!-- row end -->
+
+            <div class="row">
+
+                <div class="ripped-paper clearfix">
+
+                    <div class="span4 pull-right">
+
+                        <h4>Dive <em>deep</em> into the API.</h4>
+
+                    </div> <!-- span4 end -->
+
+                    <div class="span5 pull-right">
+
+                        <p>
+                            The WebSocket API is decidedly simple, and contains very few actions and events. One of the many benefits of WebSocket is its simplicity, and ability to use that to layer other protocols on top
+                        </p>
+
+                    </div> <!-- span5 end -->
+
+                    <div class="span3 pull-left">
+
+                        <img src="img/normal/api.png" alt="Dive deep into the API" width="220px" height="160px">
+
+                    </div> <!-- span3 end -->
+
+                </div> <!-- ripped-paper end -->
+
+            </div> <!-- row end -->
+
+            <div class="row">
+
+                <div class="ripped-paper clearfix">
+
+                    <div class="span4">
+
+                        <h4>Stop using long polling <em>hacks</em> today.</h4>
+
+                    </div> <!-- span4 end -->
+
+                    <div class="span5">
+
+                        <p>
+                            The web is all grown up. While there still may be a need to use long polling for older clients, the book will show you how to take advantage of WebSocket and still serve up your application to those without a modern browser experience.
+                        </p>
+
+                    </div> <!-- span5 end -->
+
+                    <div class="span3">
+
+                        <img src="img/normal/hacking.jpg" alt="Stop using long polling hacks today." width="220px" height="160px">
+
+                    </div> <!-- span3 end -->
+
+                </div> <!-- ripped-paper end -->
+
+            </div> <!-- row end -->
+
+        </section> <!-- container end -->
+
+        <section id="Gallery" class="container book-preview">
+
+            <div class="row">
+
+                <div class="span12">
+
+                    <hgroup>
+                        <h1>A quick peek into the book</h1>
+                        <h3>Here’s just a quick summary of what you will find inside:</h3>
+                    </hgroup>
+
+                </div> <!-- span12 end -->
+
+            </div> <!-- row end -->
+
+            <div class="row">
+
+                <div class="span4 chapter">
+
+                    <h5>Chapter 1</h5>
+                    <h6>Quick Start</h6>
+
+                </div> <!-- span4 end -->
+                <div class="span4 chapter">
+
+                    <h5>Chapter 2</h5>
+                    <h6>WebSocket API</h6>
+
+                </div> <!-- span4 end -->
+                <div class="span4 chapter">
+
+                    <h5>Chapter 3</h5>
+                    <h6>Bidirectional Chat</h6>
+
+                </div> <!-- span4 end -->
+            </div>
+            <div class="row">
+                <div class="span4 chapter">
+
+                    <h5>Chapter 4</h5>
+                    <h6>STOMP over WebSocket</h6>
+
+                </div> <!-- span4 end -->
+                <div class="span4 chapter">
+
+                    <h5>Chapter 5</h5>
+                    <h6>WebSocket Compatibility</h6>
+
+                </div> <!-- span4 end -->
+                <div class="span4 chapter">
+
+                    <h5>Chapter 6</h5>
+                    <h6>WebSocket Security</h6>
+
+                </div> <!-- span4 end -->
+            </div>
+            <div class="row">
+                <div class="span4 chapter">
+
+                    <h5>Chapter 7</h5>
+                    <h6>Debugging and Tools</h6>
+
+                </div> <!-- span4 end -->
+                <div class="span4 chapter">
+
+                    <h5>Chapter 8</h5>
+                    <h6>WebSocket Protocol</h6>
+
+                </div> <!-- span4 end -->
+
+            </div> <!-- row end -->
+
+            <div class="row">
+
+                <div class="span12">
+
+                    <div class="download-sample" id="link-sample">
+
+                        <h3>You can also download a free sample of this amazing book:</h3>
+
+                        <span class="small-text"><span>*</span> sample contains only PDF version</span>
+
+                        <a href="http://cdn.oreillystatic.com/oreilly/booksamplers/9781449369279_sampler.pdf" class="button green">Download free sample</a>
+
+                    </div> <!-- download-sample end -->
+
+                </div> <!-- span12 end -->
+
+            </div> <!-- row end -->
+
+        </section> <!-- book-preview end -->
+
+        <section class="quote">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="span12">
+
+                        <blockquote><h2>“This was exactly what I was looking for! O'Reilly books are the best!”</h2><cite class="hidden-phone">Puff</cite></blockquote>
+
+                    </div> <!-- span12 end -->
+
+                </div> <!-- row end -->
+
+            </div> <!-- container end -->
+
+        </section> <!-- quote end -->
+
+        <section class="reviews" id="link-review">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="span12">
+
+                        <hgroup>
+                            <h1>Our reviews</h1>
+                            <h3>Read through some of the awesome reviews that are all over the web.</h3>
+                        </hgroup>
+
+                        <div class="open-book">
+
+                            <div class="book-pages visible-desktop">
+
+                                <ul>
+                                    <li>
+                                        <blockquote>I found the book clearly written, and full of helpful information. The book has the latest information about WebSocket and identifies the pain points of integration. There was a section on security that was really helpful that I'm forwarding to my IT guy- and made it very clear to identify what was coming across the wire, which was really helpful. </blockquote>
+                                        <cite>- J. Greene, Amazon <a href="http://www.amazon.com/review/R1Q4YYU1IC3R7Y/ref=cm_cr_dp_title?ie=UTF8&ASIN=1449369278&channel=detail-glance&nodeID=283155&store=books">read whole review</a></cite>
+                                    </li>
+                                    <li>
+                                        <blockquote>I learned a lot, this book was recommended by a friend and I was not disappointed.
+A lot of examples which are easy to understand (I even used some of them right away!)
+
+I especially liked the section on security and the chapter on STOMP.
+
+I am definitely gonna recommend it to some colleagues !</blockquote>
+                                        <cite>- Petit Jean Guillaume <a href="http://www.amazon.com/review/R1HM8UG6C37GEJ/ref=cm_cr_dp_title?ie=UTF8&ASIN=1449369278&channel=detail-glance&nodeID=283155&store=books">read whole review</a></cite>
+                                    </li>
+                                </ul>
+
+                                <ul>
+                                    <li>
+                                        <blockquote>The book is well-written and covers a wide range of topics related to WebSockets all presented in a crisp, clean and straightforward manner. Most importantly (and unlike most tech books) it is well written.</blockquote>
+                                        <cite>- John Konrad</cite>
+                                    </li>
+                                    <li>
+                                        <blockquote>Lombardi does an excellent job of demystifying the technology with a great focus on practical application. Definitely will make its way into my reference bookshelf. Overall solid output.</blockquote>
+                                        <cite>- MJ</cite>
+                                    </li>
+                                    <li>
+                                        <blockquote>This is a great book if you want information quick and concise. Normaly I do not read books on technically stuff, but Andrew has really done a great piece of work here. I would not be able to gather information faster using google :)</blockquote>
+                                        <cite>- Nino Martinez</cite>
+                                    </li>
+                                </ul>
+
+                            </div> <!-- book-pages end -->
+
+                            <div class="mobile-book-page hidden-desktop"></div>
+
+                        </div> <!-- open-book end -->
+
+                    </div> <!-- span12 end -->
+
+                </div> <!-- row end -->
+
+            </div> <!-- container end -->
+
+        </section> <!-- reviews end -->
+
+        <section class="quote">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="span12">
+
+                        <blockquote><h2>“Straight to the point.”</h2><cite class="hidden-phone">Ian</cite></blockquote>
+
+                    </div> <!-- span12 end -->
+
+                </div> <!-- row end -->
+
+            </div> <!-- container end -->
+
+        </section> <!-- quote end -->
+
+        <footer id="link-author">
+
+             <div class="container">
+
+                <div class="row">
+
+                    <div class="span8">
+
+                        <hgroup>
+                            <h1>About the author</h1>
+                            <h3>
+                                Andrew Lombardi is a veteran entrepreneur and software developer.
+                            </h3>
+                            <p>His parents taught him to code while barely able to read on an Apple // he still wishes he had.  He invented
+                            the Internet and Nutella (suck it Al Gore) while drinking bulletproof coffee and staring off into space.  He’s been running the consulting firm Mystic Coders for 15 years,
+                            authored a kick-ass book for O'Reilly on WebSocket, coding, speaking internationally and offering technical guidance to companies as large as Walmart and companies with
+                            problems as interesting as helicopter simulation.  He firmly believes that the best thing he’s done so far, is being a great dad.</p>
+                        </hgroup>
+
+                        <ul>
+                            <li><a href="http://twitter.com/kinabalu"><img src="img/normal/icon-twitter.png" alt="Social icon" width="30px" height="30px"></a></li>
+                            <li><a href="http://twitter.com/mysticcoders"><img src="img/normal/icon-facebook.png" alt="Social icon" width="30px" height="30px"></a></li>
+                            <li><a href="http://mysticcoders.com"><img src="img/normal/icon-mail.png" alt="Social icon" width="30px" height="30px"></a></li>
+                        </ul>
+
+                    </div> <!-- span8 end -->
+
+                    <div class="span4">
+
+                        <img src="img/normal/profile-photo.png" alt="Author Picture" width="274px" height="274px">
+
+                    </div> <!-- span4 end -->
+
+                </div> <!-- row end -->
+
+                <a href="#" class="go-top">Go Top</a>
+
+             </div> <!-- container end -->
+
+        </footer>
+
+        <!-- Jquery US -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+        <!-- jQuery Easing -->
+        <script src="js/vendor/jquery.easing.1.3.js"></script>
+
+        <!-- Gallery scripts -->
+        <script src="js/vendor/klass.min.js"></script>
+        <script src="js/vendor/code.photoswipe.jquery-3.0.5.min.js"></script>
+
+        <!-- Book flip script -->
+        <script src="js/vendor/jquery.booklet.latest.min.js"></script>
+
+        <!-- Custom java -->
+        <script src="js/main.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-254925-13', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1054116853;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1054116853/?guid=ON&amp;script=0"/>
+</div>
+</noscript>
+
+    </body>
+</html>
